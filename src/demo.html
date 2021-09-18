@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="app">
+			<div id="ID1">
+				<ul class="ul1">
+					<li>角色名</li>
+					<li>用户中心</li>
+					<li>简介</li>
+				</ul>
+			</div>
+			<div class="ID2">ID2</div>
+		</div>
+	</body>
+	<script>
+		function debounce(fn, delay) {
+			let timer = null;
+			return function () {
+				if (timer) clearTimeout(timer);
+				timer = setTimeout(() => {
+					fn;
+				}, 1000);
+			};
+		}
+		let div = document.getElementById('ID1');
+		let ul = document.getElementsByClassName('ul1')[0];
+		div.addEventListener('mouseleave', function () {
+			debounce(() => {
+				ul.style.display = 'none';
+			}, 1000);
+		});
+
+		div.addEventListener('mouseenter', function () {
+			console.log(ul);
+			ul.style.display = 'block';
+		});
+	</script>
+	<style lang="less">
+		.app {
+			width: 800px;
+			height: 500px;
+			margin: 0 auto;
+			background-color: #eaea;
+			display: flex;
+			justify-content: space-around;
+		}
+		#ID1 {
+			position: relative;
+			width: 50px;
+			height: 24px;
+			background-color: red;
+		}
+		.ul1 {
+			display: none;
+			list-style: none;
+			margin: 0;
+			position: absolute;
+			top: 40px;
+			width: 50px;
+			background-color: blue;
+		}
+	</style>
+</html>

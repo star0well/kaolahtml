@@ -5,11 +5,7 @@
 				<span>考拉欢迎你！</span>
 				<span>登录</span>
 				<span>免费注册</span>
-				<a href="">
-					<span>手机考拉</span>
-					<img src="~@/assets/img/qrcode.png" />
-					<span>行用户下载领取1000元红包</span>
-				</a>
+				<yc-dropdown />
 			</div>
 			<div class="c-right">
 				<span>每日签到</span>
@@ -27,8 +23,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import YcDropdown from '@/base-ui/dropdown/index';
 
 export default defineComponent({
+	components: {
+		YcDropdown
+	},
 	setup() {
 		return {};
 	}
@@ -37,22 +37,26 @@ export default defineComponent({
 
 <style scoped lang="less">
 .header {
-	position: absolute;
-	left: 0;
-	right: 0;
-	margin: auto;
+	margin: 0 auto;
 	width: 1090px;
 	height: 30px;
-	font-size: 12px;
 	line-height: 30px;
+	font-size: 12px;
+
 	color: #999;
 	display: flex;
-	overflow: hidden;
-	justify-content: space-between;
 
-	span {
-		padding-left: 8px;
-		padding-right: 14px;
+	justify-content: space-between;
+	.c-right {
+		span {
+			padding-left: 8px;
+			padding-right: 14px;
+		}
+	}
+	.c-left {
+		span {
+			margin-right: 30px;
+		}
 	}
 }
 .contener {
